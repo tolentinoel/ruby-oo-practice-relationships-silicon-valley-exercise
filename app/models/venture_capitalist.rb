@@ -1,6 +1,6 @@
 class VentureCapitalist
 
-    attr_accessor :name
+    attr_accessor :name, :domain
 
     @@all = []
 
@@ -32,7 +32,7 @@ class VentureCapitalist
     end
 
     def portfolio
-        funding_rounds.select {|round| 
+        funding_rounds.select {|round|
             if round.venture_capitalist == self
                 round
             end
@@ -43,6 +43,12 @@ class VentureCapitalist
         portfolio.max_by {|round| round.investment}
     end
 
+    def invested(domain)
+        x = FundingRound.all.select do |fnr|
+             fnr.startup.domain == domain
+        end
+         x.map {|n| n.investment}.sum
+    end
 
 
 end
