@@ -9,7 +9,7 @@ class VentureCapitalist
     end
 
     def self.tres_commas_club
-        self.all.collect {|person| person.total_worth > 1000000000.0}
+        self.all.select {|person| person.total_worth > 1000000000.0}
     end
 
 

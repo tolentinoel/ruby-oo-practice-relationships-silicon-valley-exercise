@@ -19,6 +19,7 @@ class Startup
         @name = name
         @founder = founder
         @domain = domain
+        @@all << self
     end
 
     def pivot(str_domain, str_name)
