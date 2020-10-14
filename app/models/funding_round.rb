@@ -1,5 +1,5 @@
 class FundingRound
-
+    attr_reader :startup, :venture_capitalist, :type, :investment
     @@all = []
 
     def self.all
